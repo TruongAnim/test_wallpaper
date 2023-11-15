@@ -5,7 +5,12 @@
     <uses-feature
         android:name="android.software.live_wallpaper"
         android:required="true"></uses-feature>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -26,10 +31,24 @@
             </intent-filter>
         </activity>
 
+<!--        <service-->
+<!--            android:name=".LiveWallpaperService"-->
+<!--            android:enabled="true"-->
+<!--            android:label="Wallpaper Example "-->
+<!--            android:exported="true"-->
+<!--            android:permission="android.permission.BIND_WALLPAPER">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.service.wallpaper.WallpaperService"></action>-->
+<!--            </intent-filter>-->
+
+<!--            <meta-data-->
+<!--                android:name="android.service.wallpaper"-->
+<!--                android:resource="@xml/mywallpaper"></meta-data>-->
+<!--        </service>-->
         <service
-            android:name=".LiveWallpaperService"
+            android:name=".CameraLiveWallpaper"
             android:enabled="true"
-            android:label="Wallpaper Example "
+            android:label="Wallpaper Example 2"
             android:exported="true"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
@@ -38,7 +57,7 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/mywallpaper"></meta-data>
+                android:resource="@xml/mywallpaper2"></meta-data>
         </service>
     </application>
 
